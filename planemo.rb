@@ -57,7 +57,7 @@ class Planemo < Formula
     res = %w[pyyaml six click boto requests bioblend pygithub]
     res.each do |r|
       resource(r).stage do
-        Language::Python.setup_install "python", libexec/"vendor" 
+        Language::Python.setup_install "python", libexec/"vendor"
       end
     end
 
