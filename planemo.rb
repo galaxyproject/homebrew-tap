@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://github.com/galaxyproject/planemo/archive/0.3.0.tar.gz"
-  sha1 "34a784c13126df64010cec08397d123ac764c1d6"
+  url "https://github.com/galaxyproject/planemo/archive/0.4.0.tar.gz"
+  sha1 "d08b644ab0cc601c16da83bcebf9ec0036f29c8e"
 
   head "https://github.com/galaxyproject/planemo.git"
 
@@ -50,11 +50,21 @@ class Planemo < Formula
     sha1 "0a5d108df61f298a0cc1a261611085564ee7db3a"
   end
 
+  resource "jinja2" do
+    url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.3.tar.gz"
+    sha1 "25ab3881f0c1adfcf79053b58de829c5ae65d3ac"
+  end
+
+  resource "docutils" do
+    url "https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz"
+    sha1 "002450621b33c5690060345b0aac25bc2426d675"
+  end
+
   def install
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests bioblend pygithub]
+    res = %w[pyyaml six click boto requests bioblend pygithub jinja2 docutils]
     res.each do |r|
       resource(r).stage do
         Language::Python.setup_install "python", libexec/"vendor"
