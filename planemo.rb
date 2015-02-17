@@ -60,18 +60,23 @@ class Planemo < Formula
     sha1 "002450621b33c5690060345b0aac25bc2426d675"
   end
 
+  resource "poster" do
+    url "https://pypi.python.org/packages/source/p/poster/poster-0.8.1.tar.gz#md5=2db12704538781fbaa7e63f1505d6fc8"
+    sha1 "fd367020d22dc1cb7a8cc8207e2dfa9abb3ec0e6"
+  end
+
   def install
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests bioblend pygithub jinja2 docutils]
+    res = %w[pyyaml six click boto requests poster bioblend pygithub jinja2 docutils]
     res.each do |r|
       resource(r).stage do
-        Language::Python.setup_install "python", libexec/"vendor"
+        system "python", *Language::Python.setup_install_args( libexec/"vendor" )
       end
     end
 
-    Language::Python.setup_install "python", libexec
+    system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
