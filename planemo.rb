@@ -65,11 +65,16 @@ class Planemo < Formula
     sha1 "fd367020d22dc1cb7a8cc8207e2dfa9abb3ec0e6"
   end
 
+  resource "markupsafe" do
+    url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz#md5=f5ab3deee4c37cd6a922fb81e730da6e"
+    sha1 "cd5c22acf6dd69046d6cb6a3920d84ea66bdf62a"
+  end
+
   def install
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests poster bioblend pygithub jinja2 docutils]
+    res = %w[pyyaml six click boto requests poster bioblend pygithub markupsafe jinja2 docutils]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
