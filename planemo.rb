@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://github.com/galaxyproject/planemo/archive/0.6.0.tar.gz"
-  sha1 "9f052d53a4800ce2f1104bdff7f61e3141631bf8"
+  url "https://github.com/galaxyproject/planemo/archive/0.7.0.tar.gz"
+  sha1 "75af394df2fc44e6115f0b812796f629c9ae62a1"
 
   head "https://github.com/galaxyproject/planemo.git"
 
@@ -26,8 +26,8 @@ class Planemo < Formula
   end
 
   resource "bioblend" do
-    url "https://pypi.python.org/packages/source/b/bioblend/bioblend-0.5.2.tar.gz#md5=3ede96e5b3aed88f51c4cf33ce71396f"
-    sha1 "90fdabcaea68beb5ac3b9d686c208c0f12bd2f7d"
+    url "https://pypi.python.org/packages/source/b/bioblend/bioblend-0.5.3.tar.gz"
+    sha1 "98361291088319be2d9cd60e5e93459047ad998d"
   end
 
   resource "pyyaml" do
@@ -36,8 +36,8 @@ class Planemo < Formula
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.2.1.tar.gz"
-    sha1 "88eb1fd6a0dfb8b97262f8029978d7c75eebc16f"
+    url "https://pypi.python.org/packages/source/r/requests/requests-2.6.0.tar.gz"
+    sha1 "ad7327c73e8be8c188ad489d511097202b1fef12"
   end
 
   resource "boto" do
