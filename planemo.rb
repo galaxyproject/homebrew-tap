@@ -7,12 +7,13 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://github.com/galaxyproject/planemo/archive/0.7.0.tar.gz"
-  sha1 "75af394df2fc44e6115f0b812796f629c9ae62a1"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.8.1.tar.gz"
+  sha1 "832bafb8e1cee78a355279763fff39d06c15c1ee"
 
   head "https://github.com/galaxyproject/planemo.git"
 
   depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "libxml2"  # For --xsd and --shed_lint
   depends_on "libyaml"
 
   resource "click" do
@@ -70,11 +71,16 @@ class Planemo < Formula
     sha1 "cd5c22acf6dd69046d6cb6a3920d84ea66bdf62a"
   end
 
+  resource "glob2" do
+    url "https://pypi.python.org/packages/source/g/glob2/glob2-0.4.1.tar.gz"
+    sha1 "f215687048ddf05ad34aada784fa2c383f6dda9b"
+  end
+
   def install
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests poster bioblend pygithub markupsafe jinja2 docutils]
+    res = %w[pyyaml six click boto requests poster bioblend pygithub markupsafe jinja2 docutils glob2]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
