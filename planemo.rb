@@ -12,13 +12,15 @@ class Planemo < Formula
 
   head "https://github.com/galaxyproject/planemo.git"
 
+  option "without-completions", "Disable bash/zsh completions"
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libxml2"  # For --xsd and --shed_lint
   depends_on "libyaml"
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-3.3.tar.gz"
-    sha1 "d716a932b930d71059e49465b6b42e833808369a"
+    url "https://pypi.python.org/packages/source/c/click/click-4.0.tar.gz"
+    sha256 "f49e03611f5f2557788ceeb80710b1c67110f97c5e6740b97edf70245eea2409"
   end
 
   resource "six" do
@@ -87,10 +89,18 @@ class Planemo < Formula
       end
     end
 
+    # TODO: drop build.head with planemo 0.12.0
+    if build.head? and build.with?("completions")
+      bash_completion.install "planemo/scripts/planemo-completion.sh"
+      zsh_completion.mkpath
+      cp "#{bash_completion}/planemo-completion.sh", zsh_completion+"_planemo"
+    end
+
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
   end
 
   test do
