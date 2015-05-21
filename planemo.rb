@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.11.1.tar.gz"
-  sha256 "ad4536dbcbbc1dc4a1e21e332cf47c5a26cdafd46b2a942b50069145fca850f9"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.12.1.tar.gz"
+  sha256 "213d0ea5a6196cda062a52d2ee080265738d68b8092701bc4a4dab846074ddfc"
 
   head "https://github.com/galaxyproject/planemo.git"
 
@@ -89,12 +89,9 @@ class Planemo < Formula
       end
     end
 
-    # TODO: drop build.head with planemo 0.12.0
-    if build.head? and build.with?("completions")
-      bash_completion.install "planemo/scripts/planemo-completion.sh"
-      zsh_completion.mkpath
-      cp "#{bash_completion}/planemo-completion.sh", zsh_completion+"_planemo"
-    end
+    bash_completion.install "planemo/scripts/planemo-completion.sh"
+    zsh_completion.mkpath
+    cp "#{bash_completion}/planemo-completion.sh", zsh_completion+"_planemo"
 
     system "python", *Language::Python.setup_install_args(libexec)
 
