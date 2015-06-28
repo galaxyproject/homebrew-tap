@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.12.2.tar.gz"
-  sha256 "089ebd9d6aab51979e27a8b72b791efbe6a2a2da6d0a6c121912aad4ea3c318d"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.13.0.tar.gz"
+  sha256 "fe4148d84f75cbf9d9d7b8fbf0497b2edfaecba05846e95e82777e11ebed7383"
 
   head "https://github.com/galaxyproject/planemo.git"
 
