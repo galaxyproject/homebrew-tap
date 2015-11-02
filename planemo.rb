@@ -28,8 +28,58 @@ class Planemo < Formula
   end
 
   resource "bioblend" do
-    url "https://pypi.python.org/packages/source/b/bioblend/bioblend-0.5.3.tar.gz"
-    sha1 "98361291088319be2d9cd60e5e93459047ad998d"
+    url "https://pypi.python.org/packages/source/b/bioblend/bioblend-0.7.0.tar.gz"
+    sha256 "ce1f8e4c4c728e941ecc08752b364624da684e8001be7b719a74f8c49d5df129"
+  end
+
+  resource "cwltool" do
+    url "https://pypi.python.org/packages/source/c/cwltool/cwltool-1.0.20150606210100.tar.gz"
+    sha256 "39d8a71edad10d9c233d4120e7099b752cc93d77b5ddecd8109d2d7be51076b3"
+  end
+
+  resource "rdflib" do
+    url "https://pypi.python.org/packages/source/r/rdflib/rdflib-4.2.1.tar.gz"
+    sha256 "eb02bd235606ef3b26e213da3e576557a6392ce103efd8c6c8ff1e08321608c8"
+  end
+
+  resource "rdflib-jsonld" do
+    url "https://pypi.python.org/packages/source/r/rdflib-jsonld/rdflib-jsonld-0.3.tar.gz"
+    sha256 "944a1cf22a217bd78acacc183ea329848cba3f24d0cfb86541b42732cd412a88"
+  end
+
+  resource "SPARQLWrapper" do
+    url "https://pypi.python.org/packages/source/S/SPARQLWrapper/SPARQLWrapper-1.7.1.tar.gz"
+    sha256 "9d4cf37eca0fdcd1f8ff6208d8daeaf297aa277dc099e1323c96e7ca5eb6cfdc"
+  end
+
+  resource "pyparsing" do
+    url "https://pypi.python.org/packages/source/p/pyparsing/pyparsing-2.0.5.tar.gz"
+    sha256 "58756bf33e989d84ac72142e4ca558cf10c778a3233edb0a86632f271409ba9e"
+  end
+
+  resource "isodate" do
+    url "https://pypi.python.org/packages/source/i/isodate/isodate-0.5.4.tar.gz"
+    sha256 "42105c41d037246dc1987e36d96f3752ffd5c0c24834dd12e4fdbe1e79544e31"
+  end
+
+  resource "shellescape" do
+    url "https://pypi.python.org/packages/source/s/shellescape/shellescape-3.4.1.tar.gz"
+    sha256 "e618b2bc13f2553315ca1669995dc10fcc2cae5f1e0fda49035ef02d56f0b358"
+  end
+
+  resource "schema-salad" do
+    url "https://pypi.python.org/packages/source/s/schema-salad/schema-salad-1.0.tar.gz"
+    sha256 "c18f9d0880be7eedd6925a7a6561036c97fdd3eb1320f10065e5c2e895099472"
+  end
+
+  resource "avro" do
+    url "https://pypi.python.org/packages/source/a/avro/avro-1.7.7.tar.gz"
+    sha256 "ce7a4f83254360eba538c9fa3eb1411afc1ab3be153b6c2daeeb404599a34158"
+  end
+
+  resource "mistune" do
+    url "https://pypi.python.org/packages/source/m/mistune/mistune-0.7.1.tar.gz"
+    sha256 "6076dedf768348927d991f4371e5a799c6a0158b16091df08ee85ee231d929a7"
   end
 
   resource "pyyaml" do
@@ -81,7 +131,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests poster bioblend pygithub markupsafe jinja2 docutils glob2]
+    res = %w[pyyaml six click boto requests poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
