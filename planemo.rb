@@ -87,6 +87,21 @@ class Planemo < Formula
     sha1 "476dcfbcc6f4ebf3c06186229e8e2bd7d7b20e73"
   end
 
+  resource "pyOpenSSL" do
+    url "https://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-0.15.1.tar.gz#md5=f447644afcbd5f0a1f47350fec63a4c6"
+    sha256 "f0a26070d6db0881de8bcc7846934b7c3c930d8f9c79d45883ee48984bc0d672"
+  end
+
+  resource "ndg-httpsclient" do
+    url "https://pypi.python.org/packages/source/n/ndg-httpsclient/ndg_httpsclient-0.4.0.tar.gz"
+    sha256 "e8c155fdebd9c4bcb0810b4ed01ae1987554b1ee034dd7532d7b8fdae38a6274"
+  end
+
+  resource "pyasn1" do
+    url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.9.tar.gz"
+    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+  end
+
   resource "requests" do
     url "https://pypi.python.org/packages/source/r/requests/requests-2.6.0.tar.gz"
     sha1 "ad7327c73e8be8c188ad489d511097202b1fef12"
@@ -141,7 +156,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
+    res = %w[pyyaml pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
