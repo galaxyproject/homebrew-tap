@@ -97,6 +97,10 @@ class Planemo < Formula
     sha256 "15b74b90a63841b8430d6301e5062cd92929b1074b0c95bf62166b8239db1a96"
   end
 
+  resource "pycurl" do
+    url "https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.5.3.tar.gz"
+    sha256 "24f6c4016b1dd2a5e29d1b025ac2ad61f80c17adfdcf8a7f47aefab63ace78d7"
+  end
 
   resource "boto" do
     url "https://pypi.python.org/packages/source/b/boto/boto-2.34.0.tar.gz"
@@ -137,7 +141,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
+    res = %w[pyyaml pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
