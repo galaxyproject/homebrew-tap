@@ -37,6 +37,11 @@ class Planemo < Formula
     sha256 "39d8a71edad10d9c233d4120e7099b752cc93d77b5ddecd8109d2d7be51076b3"
   end
 
+  resource "html5lib" do
+    url "https://pypi.python.org/packages/source/h/html5lib/html5lib-0.9999999.tar.gz"
+    sha256 "2612a191a8d5842bfa057e41ba50bbb9dcb722419d2408c78cff4758d0754868"
+  end
+
   resource "rdflib" do
     url "https://pypi.python.org/packages/source/r/rdflib/rdflib-4.2.1.tar.gz"
     sha256 "eb02bd235606ef3b26e213da3e576557a6392ce103efd8c6c8ff1e08321608c8"
@@ -156,7 +161,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
+    res = %w[pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
