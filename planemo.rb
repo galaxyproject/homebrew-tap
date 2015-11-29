@@ -18,8 +18,8 @@ class Planemo < Formula
   depends_on "libyaml"
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-4.0.tar.gz"
-    sha256 "f49e03611f5f2557788ceeb80710b1c67110f97c5e6740b97edf70245eea2409"
+    url "https://pypi.python.org/packages/source/c/click/click-6.2.tar.gz"
+    sha256 "fba0ff70f5ebb4cebbf64c40a8fbc222fb7cf825237241e548354dabe3da6a82"
   end
 
   resource "six" do
@@ -157,11 +157,16 @@ class Planemo < Formula
     sha1 "f215687048ddf05ad34aada784fa2c383f6dda9b"
   end
 
+  resource "virtualenv" do
+    url "https://pypi.python.org/packages/source/v/virtualenv/virtualenv-13.1.2.tar.gz"
+    sha256 "aabc8ef18cddbd8a2a9c7f92bc43e2fea54b1147330d65db920ef3ce9812e3dc"
+  end
+
   def install
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
+    res = %w[virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
@@ -174,7 +179,7 @@ class Planemo < Formula
 
     system "python", *Language::Python.setup_install_args(libexec)
 
-    bin.install Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/planemo"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
   end
