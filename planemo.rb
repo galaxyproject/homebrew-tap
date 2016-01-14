@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.22.1.tar.gz"
-  sha256 "1b64b6a89b7d0ffc19e90de72c0f4d6c7051f73264403dead4f8588e44e58ae6"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.22.2.tar.gz"
+  sha256 "63be31359dd6899bf66ff0b9e489a9a48b20f8b3ad3bdcbaf20526d8922060d5"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -185,8 +185,8 @@ class Planemo < Formula
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/planemo"]
+    bin.install Dir["#{libexec}/vendor/bin/virtualenv"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
   end
 
   test do
