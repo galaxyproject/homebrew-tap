@@ -18,8 +18,8 @@ class Planemo < Formula
   depends_on "libyaml"
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.1.8.tar.gz"
-    sha256 "980835c723c3c988e72d63f20ae243f616379aee1d01f6fe7f2876c27658bf02"
+    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.1.9.tar.gz"
+    sha256 "b5befa4dc8beb2efacad9cda111a5bce5eca2f55697a9f1d5905041a42c3e216"
   end
 
   resource "click" do
@@ -28,8 +28,8 @@ class Planemo < Formula
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.8.0.tar.gz"
-    sha1 "aa3b0659cbc85c6c7a91efc51f2d1007040070cd"
+    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
+    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
   end
 
   resource "bioblend" do
