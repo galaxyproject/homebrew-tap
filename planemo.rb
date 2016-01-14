@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.21.1.tar.gz"
-  sha256 "f7c06efbf1b4c14b48af75a44953092c02d1f0e9b5f214a2c7a31302331aed8d"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.22.0.tar.gz"
+  sha256 "7f35e806bfa490849ce6cda7804e34357c4879e4a2ef49f2f1ec5db727c0cfac"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -16,6 +16,11 @@ class Planemo < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libxml2"  # For --xsd and --shed_lint
   depends_on "libyaml"
+
+  resource "galaxy-lib" do
+    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.1.8.tar.gz"
+    sha256 "980835c723c3c988e72d63f20ae243f616379aee1d01f6fe7f2876c27658bf02"
+  end
 
   resource "click" do
     url "https://pypi.python.org/packages/source/c/click/click-6.2.tar.gz"
@@ -166,7 +171,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool]
+    res = %w[virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
