@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.24.0.tar.gz"
-  sha256 "a974040e8534b59a3a08f596645f85ee96d988fd564182964538b69873672b6a"
+  url "https://pypi.python.org/packages/source/p/planemo/planemo-0.24.1.tar.gz"
+  sha256 "7ebde5d871ca45c2f006db6644386997e9da376d0a704f4f7346fc733bb5894e"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -18,8 +18,8 @@ class Planemo < Formula
   depends_on "libyaml"
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.4.0.tar.gz"
-    sha256 "9202ca9035427977cff4017f8817222f8998865377289919cd81ce763d34ed13"
+    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.4.1.tar.gz"
+    sha256 "b056fb731d5bd6d6f577f0b3b2eb1b66307c4af55a66d4e4a30a3d2ea12a49d6"
   end
 
   resource "click" do
