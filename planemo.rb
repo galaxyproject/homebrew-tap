@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/23/7d/ec2e084852f00af34bc4fa3531bdd3fa928e127831658023726d45804519/planemo-0.24.2.tar.gz"
-  sha256 "87ffce48763fb436d3d63823bfb6aac0d8be3c9f49a78e96bb2f21128098087e"
+  url "https://pypi.python.org/packages/a9/63/ff4f383fbcd020c741c4474a067eac1844eea5cc58fd335aa68c4b081790/planemo-0.25.0.tar.gz"
+  sha256 "1b4d7c3432e527abdded54bff0a16cc6367909bde61d212d69099dc8162470aa"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -18,8 +18,8 @@ class Planemo < Formula
   depends_on "libyaml"
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/source/g/galaxy-lib/galaxy-lib-16.4.1.tar.gz"
-    sha256 "b056fb731d5bd6d6f577f0b3b2eb1b66307c4af55a66d4e4a30a3d2ea12a49d6"
+    url "https://pypi.python.org/packages/1e/83/98faebb9ce976228501fc1fce4f457eeffcf71216a9b3b88498bd4f451f8/galaxy-lib-16.7.4.tar.gz"
+    sha256 "4cd418e855258a517679ad91b771b8d0ce9c4758c3e2198898e32b0be47a3db6"
   end
 
   resource "click" do
@@ -38,8 +38,8 @@ class Planemo < Formula
   end
 
   resource "cwltool" do
-    url "https://pypi.python.org/packages/source/c/cwltool/cwltool-1.0.20150606210100.tar.gz"
-    sha256 "39d8a71edad10d9c233d4120e7099b752cc93d77b5ddecd8109d2d7be51076b3"
+    url "https://pypi.python.org/packages/5b/ad/c1f165804fa7dfb5c43345b1f9797f0267532fb1a73fa42fd6b4a36a60dd/cwltool-1.0.20160507101510.tar.gz"
+    sha256 "30a822e8d79ab0199da6725fdc1a3ba4ccdb826bc3ef9432d573d02546f5dbd5"
   end
 
   resource "html5lib" do
@@ -78,8 +78,8 @@ class Planemo < Formula
   end
 
   resource "schema-salad" do
-    url "https://pypi.python.org/packages/source/s/schema-salad/schema-salad-1.0.tar.gz"
-    sha256 "c18f9d0880be7eedd6925a7a6561036c97fdd3eb1320f10065e5c2e895099472"
+    url "https://pypi.python.org/packages/c3/a3/da3f0a98bfbf086c272946ac325575b82906e1efbc54bc694bd7602a0dd1/schema-salad-1.11.20160506154702.tar.gz"
+    sha256 "db586b1210292a1a9f1e138122e6a6d85b0eb1bcafada7f637aa60fac78e5d34"
   end
 
   resource "avro" do
@@ -110,6 +110,36 @@ class Planemo < Formula
   resource "pyasn1" do
     url "https://pypi.python.org/packages/source/p/pyasn1/pyasn1-0.1.9.tar.gz"
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+  end
+
+  resource "aenum" do 
+    url "https://pypi.python.org/packages/ce/ad/5b069b4212a918b4f10c413ad6b580a009b4afc577b91743da70bbf15373/aenum-1.4.4.tar.gz"
+    sha256 "74271c1c5f4b75cabe1da7b2ca74d7209ec9f66901388ed53897cc2b800e3f8f"
+  end
+
+  resource "typing" do
+    url "https://pypi.python.org/packages/8c/7d/24c4d40b9839b4d3e8f70ef728c483a2f543ecd26c1856828372c78f209d/typing-3.5.1.0.tar.gz"
+    sha256 "88675d0545ccb44229a745d00ca03f56364e07d0e6de318dc14686f0d985e406"
+  end
+
+  resource "ruamel.base" do
+    url "https://pypi.python.org/packages/ea/77/60a0945f4b4eac4b6bd74d1b8e103ae58d0f07b934f962bb4c49e6ec205e/ruamel.base-1.0.0.tar.gz"
+    sha256 ""
+  end
+
+  resource "ruamel.yaml" do
+    url "https://pypi.python.org/packages/fc/f1/7530ac8594453fc850e53580256f3152a8d8f2bb351bc3d0df8d7b53dbde/ruamel.yaml-0.11.11.tar.gz"
+    sha256 "ceb179bacbf32cd42449b102f962939ebae303f0418d4588368d0c0b374ff3a3"
+  end
+
+  resource "ruamel.ordereddict" do
+    url "https://pypi.python.org/packages/b1/17/97868578071068fe7d115672b52624d421ff24e5e802f65d6bf3ea184e8f/ruamel.ordereddict-0.4.9.tar.gz"
+    sha256 "7058c470f131487a3039fb9536dda9dd17004a7581bdeeafa836269a36a2b3f6"
+  end
+
+  resource "keepalive" do
+    url "https://pypi.python.org/packages/6a/11/8eaf21d74b06cfabd42ca9d2b7b216e071faa416753faeb3322f1863f585/keepalive-0.5.tar.gz"
+    sha256 "3c6b96f9062a5a76022f0c9d41e9ef5552d80b1cadd4fccc1bf8f183ba1d1ec1"
   end
 
   resource "requests" do
@@ -171,7 +201,7 @@ class Planemo < Formula
     ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    res = %w[virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
+    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
