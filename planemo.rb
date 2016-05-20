@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/da/66/a65b2e7eefdd802e9857ff887456058c5fc2d8341ca6b50979b0b1308cf4/planemo-0.25.1.tar.gz"
-  sha256 "daa01654169f741ce0039be2b79a25f5ba830ad949c8190afc306c726c81049a"
+  url "https://pypi.python.org/packages/ed/c4/117ca288c579e95257e9aec355ef926da839760ad6cfdcb5592a104cdabf/planemo-0.26.0.tar.gz"
+  sha256 ""
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -30,6 +30,11 @@ class Planemo < Formula
   resource "six" do
     url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
     sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+  end
+
+  resource "gxformat2" do
+    url "https://pypi.python.org/packages/fa/8f/f5e5324751aa046d30a3c635d0fb8c31d8daccda6e06a2b60e47c82bbd69/gxformat2-0.1.0.tar.gz"
+    sha256 ""
   end
 
   resource "bioblend" do
@@ -201,7 +206,7 @@ class Planemo < Formula
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages 
 
-    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
+    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
