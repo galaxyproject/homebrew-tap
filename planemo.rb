@@ -8,7 +8,7 @@ require "formula"
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
   url "https://pypi.python.org/packages/ed/c4/117ca288c579e95257e9aec355ef926da839760ad6cfdcb5592a104cdabf/planemo-0.26.0.tar.gz"
-  sha256 ""
+  sha256 "7210f68743ebcc69bbf6adccae8f15fd4e805708f3a2560385378630610e3ed2"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -34,7 +34,7 @@ class Planemo < Formula
 
   resource "gxformat2" do
     url "https://pypi.python.org/packages/fa/8f/f5e5324751aa046d30a3c635d0fb8c31d8daccda6e06a2b60e47c82bbd69/gxformat2-0.1.0.tar.gz"
-    sha256 ""
+    sha256 "21bc2ec1fcb78ce8653bb65790c81c13b274347c5b87c0aaa6aad5aa61d8884e"
   end
 
   resource "bioblend" do
