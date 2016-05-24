@@ -133,8 +133,8 @@ class Planemo < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://pypi.python.org/packages/fc/f1/7530ac8594453fc850e53580256f3152a8d8f2bb351bc3d0df8d7b53dbde/ruamel.yaml-0.11.11.tar.gz"
-    sha256 "ceb179bacbf32cd42449b102f962939ebae303f0418d4588368d0c0b374ff3a3"
+    url "https://pypi.python.org/packages/e1/fe/0021f94b54f7aa5a730b765f5a4eead9675be98c7f46c206c240fb9ef819/ruamel.yaml-0.10.23.tar.gz#md5=f91f4586c0b57ec4ef4bb75261e98315"
+    sha256 "895347f81297f5542e1071092c6760ed13d86547764ebbaedbc2972eb8385dd8"
   end
 
   resource "ruamel.ordereddict" do
