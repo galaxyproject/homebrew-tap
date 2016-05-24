@@ -99,7 +99,7 @@ class Planemo < Formula
 
   resource "pyyaml" do
     url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.10.tar.gz"
-    sha1 "476dcfbcc6f4ebf3c06186229e8e2bd7d7b20e73"
+    sha256 "e713da45c96ca53a3a8b48140d4120374db622df16ab71759c9ceb5b8d46fe7c"
   end
 
   resource "pyOpenSSL" do
@@ -117,7 +117,7 @@ class Planemo < Formula
     sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
   end
 
-  resource "aenum" do 
+  resource "aenum" do
     url "https://pypi.python.org/packages/ce/ad/5b069b4212a918b4f10c413ad6b580a009b4afc577b91743da70bbf15373/aenum-1.4.4.tar.gz"
     sha256 "74271c1c5f4b75cabe1da7b2ca74d7209ec9f66901388ed53897cc2b800e3f8f"
   end
@@ -149,7 +149,7 @@ class Planemo < Formula
 
   resource "requests" do
     url "https://pypi.python.org/packages/source/r/requests/requests-2.6.0.tar.gz"
-    sha1 "ad7327c73e8be8c188ad489d511097202b1fef12"
+    sha256 "1cdbed1f0e236f35ef54e919982c7a338e4fea3786310933d3a7887a04b74d75"
   end
 
   resource "requests-toolbelt" do
@@ -164,37 +164,37 @@ class Planemo < Formula
 
   resource "boto" do
     url "https://pypi.python.org/packages/source/b/boto/boto-2.34.0.tar.gz"
-    sha1 "e19d252b58054a7711fae910324e26b2b551a44d"
+    sha256 "33baab022ecb803414ad0d6cf4041d010cfc2755ff8acc3bea7b32e77ba98be0"
   end
 
   resource "pygithub" do
     url "https://pypi.python.org/packages/source/P/PyGithub/PyGithub-1.25.2.tar.gz"
-    sha1 "0a5d108df61f298a0cc1a261611085564ee7db3a"
+    sha256 "72aee507625e8ce6e3bef825e2ba543d0a2a20cb5ba5edfbe6436fc6eadfcef8"
   end
 
   resource "jinja2" do
     url "https://pypi.python.org/packages/source/J/Jinja2/Jinja2-2.7.3.tar.gz"
-    sha1 "25ab3881f0c1adfcf79053b58de829c5ae65d3ac"
+    sha256 "2e24ac5d004db5714976a04ac0e80c6df6e47e98c354cb2c0d82f8879d4f8fdb"
   end
 
   resource "docutils" do
     url "https://pypi.python.org/packages/source/d/docutils/docutils-0.12.tar.gz"
-    sha1 "002450621b33c5690060345b0aac25bc2426d675"
+    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
   end
 
   resource "poster" do
     url "https://pypi.python.org/packages/source/p/poster/poster-0.8.1.tar.gz#md5=2db12704538781fbaa7e63f1505d6fc8"
-    sha1 "fd367020d22dc1cb7a8cc8207e2dfa9abb3ec0e6"
+    sha256 "af5bf45da4a916db2b638cffd9e9d6668b33020e2b8ca9f864db79b49331c6ff"
   end
 
   resource "markupsafe" do
     url "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz#md5=f5ab3deee4c37cd6a922fb81e730da6e"
-    sha1 "cd5c22acf6dd69046d6cb6a3920d84ea66bdf62a"
+    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
   end
 
   resource "glob2" do
     url "https://pypi.python.org/packages/source/g/glob2/glob2-0.4.1.tar.gz"
-    sha1 "f215687048ddf05ad34aada784fa2c383f6dda9b"
+    sha256 "9974c375c54eb56223643980e724b37fc8efcaeb65fc55045fc521baa5f60175"
   end
 
   resource "virtualenv" do
@@ -204,7 +204,7 @@ class Planemo < Formula
 
   def install
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages 
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
     res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
