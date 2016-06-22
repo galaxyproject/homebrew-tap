@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/ed/c4/117ca288c579e95257e9aec355ef926da839760ad6cfdcb5592a104cdabf/planemo-0.26.0.tar.gz"
-  sha256 "7210f68743ebcc69bbf6adccae8f15fd4e805708f3a2560385378630610e3ed2"
+  url "https://pypi.python.org/packages/a6/5f/83a6253a8798a61e2f69b25f3b71aa4603497982477c89df01082ad0e82f/planemo-0.27.0.tar.gz"
+  sha256 "07d4f84a02647cd8d11d1996a2a4294a8f4283cca8c9931294e98278eefcc811"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -17,9 +17,14 @@ class Planemo < Formula
   depends_on "libxml2"  # For --xsd and --shed_lint
   depends_on "libyaml"
 
+  resource "ephemeris" do
+    url "https://pypi.python.org/packages/0f/8e/c6072190e90fb7e9a939241a1a43d8c4edc5dbbf3858a210afae83e1f4c7/ephemeris-0.1.0.tar.gz"
+    sha256 "7c0b49a43f661dd21ac6000ab41510f4d54d850fe960ff93d2af1ff07ef2eddc"
+  end
+
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/f0/8b/bc6f9646e8ac6dc716d68c48d8aaf33e4257c6695b0f236381452db02eec/galaxy-lib-16.7.6.tar.gz"
-    sha256 "b91b9fa63526311cc95f05cc2ed23ece3ad7d12768932b4fe82c6d2a817ddca6"
+    url "https://pypi.python.org/packages/31/c9/ec2e5c65ec78a2c4967cc0886d8eb899019284fe68c242ef904def32ce68/galaxy-lib-16.7.9.tar.gz"
+    sha256 "69b3e04ca9f17bcb0e14dee6de5df2038f6851f497d08c1b23c17aca2be36897"
   end
 
   resource "click" do
@@ -43,8 +48,8 @@ class Planemo < Formula
   end
 
   resource "cwltool" do
-    url "https://pypi.python.org/packages/83/27/033a7514764977e4b03b7bb1fe4a47cb0fe58cc2896158f5606d9670cc81/cwltool-1.0.20160511162129.tar.gz"
-    sha256 "3a3f24aa9f11f3d5b8778fef556ba18c82b4e71334c407f9d17a7985d25f890f"
+    url "https://pypi.python.org/packages/63/29/8318467dce2edfbc5e6e9b2ecaa1dc31ef696bf083227dc7358bc5b2a554/cwltool-1.0.20160616182520.tar.gz"
+    sha256 "2c8b46b5bf3b463cce4a86af7ab28c0c0c74b78263ba96f1ea0347dbf8aad2dd"
   end
 
   resource "html5lib" do
@@ -83,8 +88,8 @@ class Planemo < Formula
   end
 
   resource "schema-salad" do
-    url "https://pypi.python.org/packages/c3/a3/da3f0a98bfbf086c272946ac325575b82906e1efbc54bc694bd7602a0dd1/schema-salad-1.11.20160506154702.tar.gz"
-    sha256 "db586b1210292a1a9f1e138122e6a6d85b0eb1bcafada7f637aa60fac78e5d34"
+    url "https://pypi.python.org/packages/51/99/cae16cfd2e981702441011e572445e12fdd0f8f69070a8ee13d09109120b/schema-salad-1.12.20160610104117.tar.gz"
+    sha256 "56b248f214f961200dcb0bcb0017fc6f009b90def54beb61cd0f9f01f041dc7b"
   end
 
   resource "avro" do
@@ -206,7 +211,7 @@ class Planemo < Formula
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
-    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
+    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend ephemeris gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
