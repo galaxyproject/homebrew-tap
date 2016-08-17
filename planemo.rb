@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/a6/5f/83a6253a8798a61e2f69b25f3b71aa4603497982477c89df01082ad0e82f/planemo-0.27.0.tar.gz"
-  sha256 "07d4f84a02647cd8d11d1996a2a4294a8f4283cca8c9931294e98278eefcc811"
+  url "https://pypi.python.org/packages/fc/a7/269358f87f0201fd8222b6218c79bce106d8a528deeb1ed57d4f23367172/planemo-0.28.0.tar.gz"
+  sha256 "824d49654029c9cabeab4d4d8b50ec7205afb93b7dcd79f7088d8ba2346004ce"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -18,13 +18,13 @@ class Planemo < Formula
   depends_on "libyaml"
 
   resource "ephemeris" do
-    url "https://pypi.python.org/packages/0f/8e/c6072190e90fb7e9a939241a1a43d8c4edc5dbbf3858a210afae83e1f4c7/ephemeris-0.1.0.tar.gz"
-    sha256 "7c0b49a43f661dd21ac6000ab41510f4d54d850fe960ff93d2af1ff07ef2eddc"
+    url "https://pypi.python.org/packages/3b/4b/90da7bff5233c76e023b090b0935bf644a20ac54f3848ff73612be9f2a18/ephemeris-0.2.0.tar.gz"
+    sha256 "40b4df0486e1f9837593f838658a30820ac22caebe1724de91c8c67339628caa"
   end
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/31/c9/ec2e5c65ec78a2c4967cc0886d8eb899019284fe68c242ef904def32ce68/galaxy-lib-16.7.9.tar.gz"
-    sha256 "69b3e04ca9f17bcb0e14dee6de5df2038f6851f497d08c1b23c17aca2be36897"
+    url "https://pypi.python.org/packages/5d/36/68594f5b76323133c5849834cf2d781a73b7166296b1456cd52aaa26e2ac/galaxy-lib-16.7.10.tar.gz"
+    sha256 "c53514a5cc41c23975ab2de78387c970971d3bbb027a2def030bbfd2058a5865"
   end
 
   resource "click" do
@@ -38,18 +38,18 @@ class Planemo < Formula
   end
 
   resource "gxformat2" do
-    url "https://pypi.python.org/packages/fa/8f/f5e5324751aa046d30a3c635d0fb8c31d8daccda6e06a2b60e47c82bbd69/gxformat2-0.1.0.tar.gz"
-    sha256 "21bc2ec1fcb78ce8653bb65790c81c13b274347c5b87c0aaa6aad5aa61d8884e"
+    url "https://pypi.python.org/packages/23/75/0dbb9f70073737c971d165f92a3579cc706bd3459eecd1d63a8f23a827cf/gxformat2-0.1.1.tar.gz"
+    sha256 "4cab07def6767166001493b27bb5ca92b4e5c31104698cad95f66dd0bbfd8038"
   end
 
   resource "bioblend" do
-    url "https://pypi.python.org/packages/source/b/bioblend/bioblend-0.7.0.tar.gz"
-    sha256 "ce1f8e4c4c728e941ecc08752b364624da684e8001be7b719a74f8c49d5df129"
+    url "https://pypi.python.org/packages/6b/fe/3ae03a2de4106c1bfea45eebb99a6ba7ed9debb212d64eb5abeaea0a8a89/bioblend-0.8.0.tar.gz"
+    sha256 "b23e0ac23d6ff63f8354125ea99cad2e98be0f0b22a5709b461755bcd86f936f"
   end
 
   resource "cwltool" do
-    url "https://pypi.python.org/packages/63/29/8318467dce2edfbc5e6e9b2ecaa1dc31ef696bf083227dc7358bc5b2a554/cwltool-1.0.20160616182520.tar.gz"
-    sha256 "2c8b46b5bf3b463cce4a86af7ab28c0c0c74b78263ba96f1ea0347dbf8aad2dd"
+    url "https://pypi.python.org/packages/18/d2/2f63ac95b2daebc2724628d0c7a71fdb04d72abc4f3f4972380aca0d0966/cwltool-1.0.20160726135535.tar.gz"
+    sha256 "95953bec5f51e902dab8528ad379552179ba574f0d7087b560f517ade7d5aae3"
   end
 
   resource "html5lib" do
@@ -88,8 +88,8 @@ class Planemo < Formula
   end
 
   resource "schema-salad" do
-    url "https://pypi.python.org/packages/51/99/cae16cfd2e981702441011e572445e12fdd0f8f69070a8ee13d09109120b/schema-salad-1.12.20160610104117.tar.gz"
-    sha256 "56b248f214f961200dcb0bcb0017fc6f009b90def54beb61cd0f9f01f041dc7b"
+    url "https://pypi.python.org/packages/57/01/14d5e22dbc71da0b7efd80f115e14e4a2d59710b85b4164719af6faf3da7/schema-salad-1.14.20160708181155.tar.gz"
+    sha256 "b408b22b9fbd58b76333696806de78d3cc2b028a0f1858f00d1204e4c6d98644"
   end
 
   resource "avro" do
@@ -138,8 +138,8 @@ class Planemo < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://pypi.python.org/packages/e1/fe/0021f94b54f7aa5a730b765f5a4eead9675be98c7f46c206c240fb9ef819/ruamel.yaml-0.10.23.tar.gz#md5=f91f4586c0b57ec4ef4bb75261e98315"
-    sha256 "895347f81297f5542e1071092c6760ed13d86547764ebbaedbc2972eb8385dd8"
+    url "https://pypi.python.org/packages/fc/f1/7530ac8594453fc850e53580256f3152a8d8f2bb351bc3d0df8d7b53dbde/ruamel.yaml-0.11.11.tar.gz"
+    sha256 "ceb179bacbf32cd42449b102f962939ebae303f0418d4588368d0c0b374ff3a3"
   end
 
   resource "ruamel.ordereddict" do
