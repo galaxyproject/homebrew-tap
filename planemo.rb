@@ -229,6 +229,7 @@ class Planemo < Formula
     zsh_completion.mkpath
     cp "#{bash_completion}/planemo-completion.sh", zsh_completion+"_planemo"
 
+    ENV["PLANEMO_REQUIRE_LXML"] = "0"
     system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/planemo"]
