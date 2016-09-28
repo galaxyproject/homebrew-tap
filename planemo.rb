@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/95/3f/d39888bed5af8a6e3735a40940b7b0d5396d63a7591c50eca22732615413/planemo-0.33.1.tar.gz"
-  sha256 "8b6679ac2fb39964925db3c0087179a3b6e2f8a876c3cb665b54c24df4b81a9f"
+  url "https://pypi.python.org/packages/d9/56/074bc99330b3f3903125d183d5382abe27552a113f1a0f8fa53dce416a3d/planemo-0.33.2.tar.gz"
+  sha256 "d1190a68277924e49ed21d6aa776fb44eba3772312ee6d4910d5f461758c23cb"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
