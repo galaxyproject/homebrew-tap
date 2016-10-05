@@ -7,8 +7,8 @@ require "formula"
 
 class Planemo < Formula
   homepage "http://planemo.readthedocs.org/en/latest/"
-  url "https://pypi.python.org/packages/d9/56/074bc99330b3f3903125d183d5382abe27552a113f1a0f8fa53dce416a3d/planemo-0.33.2.tar.gz"
-  sha256 "d1190a68277924e49ed21d6aa776fb44eba3772312ee6d4910d5f461758c23cb"
+  url "https://pypi.python.org/packages/49/be/89533d490d6380e00edf31b95ea18594e2ed6d20a339118d3f4e4287f1ad/planemo-0.34.0.tar.gz"
+  sha256 "78fe3caaba6c39e8be8e51ae52854ff1ad27deca2e18f03c92c77d3f03674d4d"
   head "https://github.com/galaxyproject/planemo.git"
 
   option "without-completions", "Disable bash/zsh completions"
@@ -23,8 +23,8 @@ class Planemo < Formula
   end
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/f2/17/1ad689c1e6d90a1b015f9ce4ffb5ea1d17b16f2e451db6271a1c165cad71/galaxy-lib-16.10.0.tar.gz"
-    sha256 "3261b1017696d85e6dbe1656bab0bd022b8e270e1ee931885ee5fc05d7126fc7"
+    url "https://pypi.python.org/packages/55/51/7a1158488e9939ab9ccd1824e37d2bfca1e3a4ded1276a8482db26e51f3a/galaxy-lib-16.10.5.tar.gz"
+    sha256 "124ba14d11beb5fb836418e02358403e748e577e3b4e6397dfc7c6c0a6ced26d"
   end
 
   resource "click" do
