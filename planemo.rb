@@ -207,11 +207,26 @@ class Planemo < Formula
     sha256 "aabc8ef18cddbd8a2a9c7f92bc43e2fea54b1147330d65db920ef3ce9812e3dc"
   end
 
+  resource "pyaml" do
+    url "https://pypi.python.org/packages/a5/6e/e1cfae73530270e4e3efcf58d0099d3dbc9db69e548e55593099c05cc5bb/pyaml-16.11.0.tar.gz"
+    sha256 "4d6f76cf210080c25007a20615113ab6eb3696f9cab9260dd85dabdd100b3257"
+  end
+
+  resource "BeautifulSoup4" do
+    url "https://pypi.python.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
+    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+  end
+
+  resource "configparser" do
+    url "https://pypi.python.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz"
+    sha256 "5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"
+  end
+
   def install
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
-    res = %w[aenum virtualenv pyyaml html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend ephemeris gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
+    res = %w[aenum virtualenv pyyaml pyaml BeautifulSoup4 configparser html5lib pyOpenSSL ndg-httpsclient pyasn1 pycurl six click boto requests requests-toolbelt poster bioblend ephemeris gxformat2 pygithub markupsafe jinja2 docutils glob2 ruamel.base ruamel.ordereddict ruamel.yaml keepalive typing shellescape isodate pyparsing rdflib rdflib-jsonld SPARQLWrapper avro mistune schema-salad cwltool galaxy-lib]
     res.each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args( libexec/"vendor" )
