@@ -16,6 +16,7 @@ class Planemo < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libxml2"  # For --xsd and --shed_lint
   depends_on "libyaml"
+  depends_on "openssl"
 
   resource "ephemeris" do
     url "https://pypi.python.org/packages/3b/4b/90da7bff5233c76e023b090b0935bf644a20ac54f3848ff73612be9f2a18/ephemeris-0.2.0.tar.gz"
