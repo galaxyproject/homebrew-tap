@@ -24,8 +24,8 @@ class Planemo < Formula
   end
 
   resource "galaxy-lib" do
-    url "https://pypi.python.org/packages/55/51/7a1158488e9939ab9ccd1824e37d2bfca1e3a4ded1276a8482db26e51f3a/galaxy-lib-16.10.5.tar.gz"
-    sha256 "124ba14d11beb5fb836418e02358403e748e577e3b4e6397dfc7c6c0a6ced26d"
+    url "https://pypi.python.org/packages/48/49/9e39d0b9a43dde2828d8c57c487df6ba805a2453d52db6a6e283aa3b0ffa/galaxy-lib-17.1.2.tar.gz"
+    sha256 "4dd3c58c0ac34a3a29e73747c5ddffe6d53e5a46ec165f379d54dd2ccd9ea148"
   end
 
   resource "click" do
